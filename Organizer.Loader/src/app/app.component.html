@@ -1,0 +1,21 @@
+<md-sidenav-container class="app-container">
+    <md-sidenav #leftSideNav mode="over" [align]="'start'">
+        <menu (navigate)="leftSideNav.close()"></menu>
+    </md-sidenav>
+    <md-sidenav #rightSideNav mode="over" [align]="'end'">
+        <button md-raised-button (click)="logout()">Cerrar Sesión</button>
+    </md-sidenav>
+    <md-toolbar *ngIf="authenticationService.isLogged" color="primary">
+        <a md-icon-button (click)="leftSideNav.open()"><i class="material-icons">menu</i></a>
+        <h1>
+            <i class="material-icons">today</i>
+            Organizer
+        </h1>
+        <span class="fill-remaining-space"></span>
+        <a md-icon-button (click)="rightSideNav.open()"><i class="material-icons">more_vert</i></a>
+    </md-toolbar>
+    <div class="app-content">
+        <router-outlet></router-outlet>
+    </div>
+</md-sidenav-container>
+<global-spinner></global-spinner>

@@ -1,0 +1,14 @@
+.currency-item{
+    background: white;
+    padding: 5px;
+}
+
+.currency-item-content{
+    width: 100%;
+}
+
+.currency-item-content>.icon-container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}

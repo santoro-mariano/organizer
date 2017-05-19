@@ -1,0 +1,15 @@
+<md-list>
+ <md-list-item *ngFor="let currency of currencies" class="currency-item">
+     <md-icon md-list-icon>monetization_on</md-icon>
+     <div class="currency-item-content">
+         <div md-line class="icon-container">
+            <button md-icon-button><i class="material-icons">edit</i></button>
+            <button md-icon-button><i class="material-icons">delete</i></button>
+        </div>
+         <div md-line class="item-content">
+            <p>Símbolo: {{currency.Symbol}}</p>
+            <p>Descripción: {{currency.Description}}</p>
+         </div>
+     </div>
+ </md-list-item>
+</md-list>

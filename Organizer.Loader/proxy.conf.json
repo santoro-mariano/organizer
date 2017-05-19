@@ -1,0 +1,14 @@
+{
+  "/api": {
+    "target": "http://localhost/Organizer.WebAPI/",
+    "secure": false
+  },
+  "/token": {
+    "target": "http://localhost/Organizer.WebAPI/",
+    "secure": false
+  },
+  "/Token": {
+    "target": "http://localhost/Organizer.WebAPI/",
+    "secure": false
+  }
+}

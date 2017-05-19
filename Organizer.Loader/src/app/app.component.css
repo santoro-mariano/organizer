@@ -1,0 +1,11 @@
+.app-container {
+    height: 100%;
+}
+
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+.app-content {
+    padding: 8px;
+}

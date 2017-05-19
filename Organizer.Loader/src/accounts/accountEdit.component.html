@@ -1,0 +1,24 @@
+<md-card>
+    <md-card-title>
+        <span>{{isNewItem ? 'Creación de cuenta' : 'Edición de cuenta'}}</span>
+    </md-card-title>
+    <md-card-content>
+        <form #accountForm="ngForm" >
+            <!-- CBU -->
+            <md-input-container>
+                <input mdInput type="number" placeholder="CBU" name="CBU" [(ngModel)]="model.CBU">
+            </md-input-container>
+            <!-- Description -->
+            <md-input-container>
+                <input mdInput type="text" placeholder="Descripción" name="Description" [(ngModel)]="model.Description">
+            </md-input-container>
+            <!-- Amount -->
+            <md-input-container>
+                <input mdInput type="number" placeholder="Monto" name="Amount" [(ngModel)]="model.Amount">
+            </md-input-container>
+        </form>
+    </md-card-content>
+    <md-card-actions>
+        <button md-raised-button (click)="saveChanges()">{{isNewItem ? 'Guardar' : 'Actualizar'}}</button>
+    </md-card-actions>
+</md-card>

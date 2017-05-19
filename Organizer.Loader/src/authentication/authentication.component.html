@@ -1,0 +1,18 @@
+<md-card>
+    <md-card-title>Bienvenido</md-card-title>
+    <md-card-content>
+        <form #authenticationForm="ngForm" >
+            <!-- User -->
+            <md-input-container>
+                <input mdInput type="email" placeholder="Usuario" name="User" [(ngModel)]="model.User">
+            </md-input-container>
+            <!-- Password -->
+            <md-input-container>
+                <input mdInput type="password" placeholder="Contraseña" name="Password" [(ngModel)]="model.Password">
+            </md-input-container>
+        </form>
+    </md-card-content>
+    <md-card-actions>
+        <button md-raised-button (click)="login()">Ingresar</button>
+    </md-card-actions>
+</md-card>

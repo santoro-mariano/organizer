@@ -51,6 +51,10 @@ export class MovementEditComponent implements OnInit {
             this.accounts = r;
         });
 
+        this.movementsService.getMovementDescriptions().subscribe(r => {
+            this.movementDescriptions = r;
+        });
+
         this.route.params
         .switchMap((params: Params) => {
             const id = params["movementId"];
@@ -79,7 +83,7 @@ export class MovementEditComponent implements OnInit {
     }
 
     private onChangesCompleted(result: boolean): void {
-        if(this.isNewItem){
+        if(this.isNewItem && result){
             const cleanMovement = new Movement();
             cleanMovement.Origin = this.model.Origin;
             cleanMovement.OriginAccountId = this.model.OriginAccountId;

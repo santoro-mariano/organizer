@@ -22,6 +22,8 @@ export class MenuComponent {
         accountsGroup.Items.push(new MenuItem("account_balance", "Crear nueva cuenta", "/account"));
         this.menuGroups.push(accountsGroup);
         let cardsGroup = new MenuGroup("Tarjetas");
+        cardsGroup.Items.push(new MenuItem("view_list", "Compañías de tarjetas cargadas", "/cardCompanies"));
+        cardsGroup.Items.push(new MenuItem("credit_card", "Cargar nueva compañía de tarjetas", "/cardCompany"));
         cardsGroup.Items.push(new MenuItem("view_list", "Tarjetas cargadas", "/cards"));
         cardsGroup.Items.push(new MenuItem("credit_card", "Cargar nueva tarjeta", "/card"));
         this.menuGroups.push(cardsGroup);

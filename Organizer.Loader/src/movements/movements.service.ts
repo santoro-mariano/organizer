@@ -25,6 +25,13 @@ export class MovementsService {
         });
     }
 
+    public getMovementDescriptions(): Observable<Array<string>> {
+        return this.http.get("Movements/Descriptions").map(r => {
+            let response = r.json();
+            return response.Result ? response.Data : [];
+        });
+    }
+
     public addMovement(movement: Movement): Observable<boolean> {
         return this.http.post("Movements", movement).map(r => {
             let response = r.json();

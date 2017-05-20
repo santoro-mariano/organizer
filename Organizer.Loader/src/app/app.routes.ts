@@ -11,6 +11,8 @@ import { MovementEditComponent } from "movements/movementEdit.component";
 import { CurrencyEditComponent } from "currencies/currencyEdit.component";
 import { AccountEditComponent } from "accounts/accountEdit.component";
 import { CardEditComponent } from "cards/cardEdit.component";
+import { CardCompanyListComponent } from "cards/cardCompanyList.component";
+import { CardCompanyEditComponent } from "cards/cardCompanyEdit.component";
 
 import { AuthenticationGuard } from "authentication/authentication.guard";
 
@@ -27,6 +29,9 @@ export const routes: Routes = [
     { path: "cards", canActivate: [AuthenticationGuard], component: CardListComponent },
     { path: "card", canActivate: [AuthenticationGuard], component: CardEditComponent },
     { path: "card/:cardId", canActivate: [AuthenticationGuard], component: CardEditComponent },
+    { path: "cardCompanies", canActivate: [AuthenticationGuard], component: CardCompanyListComponent },
+    { path: "cardCompany", canActivate: [AuthenticationGuard], component: CardCompanyEditComponent },
+    { path: "cardCompany/:cardCompanyId", canActivate: [AuthenticationGuard], component: CardCompanyEditComponent },
     { path:"movements", canActivate: [AuthenticationGuard], component: MovementListComponent },
     { path: "movement", canActivate: [AuthenticationGuard], component: MovementEditComponent },
     { path: "movement/:movementId", canActivate: [AuthenticationGuard], component: MovementEditComponent },

@@ -1,0 +1,16 @@
+<md-card>
+    <md-card-title>
+        <span>{{!!isNewItem ? 'Creación de compañía tarjeta' : 'Edición de compañía de tarjeta'}}</span>
+    </md-card-title>
+    <md-card-content>
+        <form #cardForm="ngForm" >
+            <!-- Name -->
+            <md-input-container>
+                <input mdInput type="text" placeholder="Nombre" name="Name" [(ngModel)]="model.Name">
+            </md-input-container>
+        </form>
+    </md-card-content>
+    <md-card-actions>
+        <button md-raised-button (click)="saveChanges()">{{isNewItem ? 'Guardar' : 'Actualizar'}}</button>
+    </md-card-actions>
+</md-card>

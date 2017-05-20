@@ -43,22 +43,6 @@ namespace Organizer.WebAPI.Controllers
             return result;
         }
 
-        [Route("Companies")]
-        public ApiResponse<IEnumerable<CardCompany>> GetCardCompanies()
-        {
-            var result = new ApiResponse<IEnumerable<CardCompany>>();
-            try
-            {
-                result.Data = this.finantialManager.GetCardCompanies();
-                result.Result = true;
-            }
-            catch (Exception exc)
-            {
-                result.ResultMessage = exc.Message;
-            }
-            return result;
-        }
-
         [Route("{cardId}")]
         public ApiResponse<Card> GetCard(long cardId)
         {
@@ -112,6 +96,87 @@ namespace Organizer.WebAPI.Controllers
             try
             {
                 result.Result = this.finantialManager.RemoveCard(cardId) > 0;
+            }
+            catch (Exception exc)
+            {
+                result.ResultMessage = exc.Message;
+            }
+
+            return result;
+        }
+
+
+        [Route("Companies")]
+        public ApiResponse<IEnumerable<CardCompany>> GetCardCompanies()
+        {
+            var result = new ApiResponse<IEnumerable<CardCompany>>();
+            try
+            {
+                result.Data = this.finantialManager.GetCardCompanies();
+                result.Result = true;
+            }
+            catch (Exception exc)
+            {
+                result.ResultMessage = exc.Message;
+            }
+            return result;
+        }
+
+        [Route("Companies/{cardCompanyId}")]
+        public ApiResponse<CardCompany> GetCardCompany(long cardCompanyId)
+        {
+            var result = new ApiResponse<CardCompany>();
+            try
+            {
+                result.Data = this.finantialManager.GetCardCompanyById(cardCompanyId);
+                result.Result = true;
+            }
+            catch (Exception exc)
+            {
+                result.ResultMessage = exc.Message;
+            }
+            return result;
+        }
+
+        [Route("Companies")]
+        public ApiResponse PostCardCompany([FromBody] CardCompany cardCompany)
+        {
+            var result = new ApiResponse();
+            try
+            {
+                result.Result = this.finantialManager.AddCardCompany(cardCompany) > 0;
+            }
+            catch (Exception exc)
+            {
+                result.ResultMessage = exc.Message;
+            }
+
+            return result;
+        }
+
+        [Route("Companies")]
+        public ApiResponse PutCardCompany([FromBody] CardCompany cardCompany)
+        {
+            var result = new ApiResponse();
+            try
+            {
+                result.Result = this.finantialManager.UpdateCardCompany(cardCompany) > 0;
+            }
+            catch (Exception exc)
+            {
+                result.ResultMessage = exc.Message;
+            }
+
+            return result;
+        }
+
+        [Route("Companies/{cardId}")]
+        public ApiResponse DeleteCardCompany(long cardCompanyId)
+        {
+            var result = new ApiResponse();
+            try
+            {
+                result.Result = this.finantialManager.RemoveCardCompany(cardCompanyId) > 0;
             }
             catch (Exception exc)
             {

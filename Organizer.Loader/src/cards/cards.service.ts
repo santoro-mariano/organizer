@@ -54,4 +54,32 @@ export class CardsService {
             return response.Result ? response.Data : [];
         });
     }
+
+    public getCardCompany(cardCompanyId: number): Observable<CardCompany> {
+        return this.http.get(`Cards/Companies/${cardCompanyId}`).map(r => {
+            let response = r.json();
+            return response.Result ? response.Data : {};
+        });
+    }
+
+    public addCardCompany(cardCompany: CardCompany): Observable<boolean> {
+        return this.http.post("Cards/Companies", cardCompany).map(r => {
+            let response = r.json();
+            return response.Result;
+        });
+    }
+
+    public updateCardCompany(cardCompany: CardCompany): Observable<boolean> {
+        return this.http.put("Cards/Companies", cardCompany).map(r => {
+            let response = r.json();
+            return response.Result;
+        });
+    }
+
+    public deleteCardCompany(cardCompanyId: number): Observable<boolean> {
+        return this.http.delete(`Cards/Companies/${cardCompanyId}`).map(r => {
+            let response = r.json();
+            return response.Result;
+        });
+    }
 }

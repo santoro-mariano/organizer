@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Params } from "@angular/router";
 
-import { Card } from "entities/card";
-import { CardType } from "entities/cardType";
 import { CardCompany } from "entities/cardCompany";
 
 import { CardsService } from "cards/cards.service";
@@ -16,15 +14,12 @@ import "rxjs/add/observable/empty";
 
 @Component({
     moduleId: module.id,
-    templateUrl: "cardEdit.component.html"
+    templateUrl: "cardCompanyEdit.component.html"
 })
-export class CardEditComponent implements OnInit {
-
-    cardTypeEnum = CardType;
+export class CardCompanyEditComponent implements OnInit {
 
     isNewItem: boolean;
-    model = new Card();
-    companies: Array<CardCompany>;
+    model = new CardCompany();
 
     constructor(private cardsService: CardsService,
                 private spinnerService: GlobalSpinnerService,
@@ -33,23 +28,19 @@ export class CardEditComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.cardsService.getCardCompanies().subscribe(r => {
-            this.companies = r;
-        });
-
         this.route.params
         .switchMap((params: Params) => {
-            const id = params["cardId"];
+            const id = params["cardCompanyId"];
             this.isNewItem = id === null || id === undefined;
             if(this.isNewItem){
-                return  Observable.empty<Card>();
+                return  Observable.empty<CardCompany>();
             }
 
-            this.spinnerService.show("Cargando tarjeta...");
-            return this.cardsService.getCard(+id);
+            this.spinnerService.show("Cargando compañía de tarjeta...");
+            return this.cardsService.getCardCompany(+id);
         })
-        .subscribe(card => {
-            this.model = card;
+        .subscribe(cardCompany => {
+            this.model = cardCompany;
             this.spinnerService.hide();
         });
     }
@@ -57,20 +48,20 @@ export class CardEditComponent implements OnInit {
     saveChanges(): void {
         this.spinnerService.show("Guardando cambios...");
         if(this.isNewItem) {
-            this.cardsService.addCard(this.model).subscribe(r => this.onChangesCompleted(r));
+            this.cardsService.addCardCompany(this.model).subscribe(r => this.onChangesCompleted(r));
         }
         else {
-            this.cardsService.updateCard(this.model).subscribe(r => this.onChangesCompleted(r));
+            this.cardsService.updateCardCompany(this.model).subscribe(r => this.onChangesCompleted(r));
         }
     }
 
     private onChangesCompleted(result: boolean): void {
         if (this.isNewItem && result) {
-            const cleanCard = new Card();
-            this.model = cleanCard;
+            const cleanCardCompany = new CardCompany();
+            this.model = cleanCardCompany;
         }
         this.spinnerService.hide();
-        const resultMessage = result ? "Tarjeta guardada correctamente" : "No se pudo guardar la tarjeta.";
+        const resultMessage = result ? "Compañía de tarjeta guardada correctamente" : "No se pudo guardar la compañía de tarjeta.";
         this.messageBoxService.show(resultMessage);
     }
 }

@@ -44,6 +44,22 @@ namespace Organizer.WebAPI.Controllers
             return result;
         }
 
+        [Route("Descriptions")]
+        public ApiResponse<IEnumerable<string>> GetMovementDescriptions()
+        {
+            var result = new ApiResponse<IEnumerable<string>>();
+            try
+            {
+                result.Data = this.movementManager.GetMovementDescriptions();
+                result.Result = true;
+            }
+            catch (Exception exc)
+            {
+                result.ResultMessage = exc.Message;
+            }
+            return result;
+        }
+
         public ApiResponse PostMovement([FromBody] Movement movement)
         {
             var result = new ApiResponse();

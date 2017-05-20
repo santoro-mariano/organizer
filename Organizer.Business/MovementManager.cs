@@ -24,6 +24,14 @@ namespace Organizer.Business
             }
         }
 
+        public IEnumerable<string> GetMovementDescriptions()
+        {
+            using (var ctx = new OrganizerContext())
+            {
+                return ctx.Movements.Select(m => m.Description).ToList();
+            }
+        }
+
         public int AddMovement(Movement movement)
         {
             using (var ctx = new OrganizerContext())

@@ -1,0 +1,14 @@
+<md-card *ngFor="let cardCompany of cardCompanies" class="cardCompany-item">
+    <md-card-content>
+        <md-icon color="primary">credit_card</md-icon>
+        <div class="cardCompanyDescription">
+            <header>
+                <button md-icon-button><i class="material-icons">edit</i></button>
+                <button md-icon-button><i class="material-icons">delete</i></button>
+            </header>
+            <div class="body">
+                <p>Nombre: {{cardCompany.Name}}</p>
+            </div>
+        </div>
+    </md-card-content>
+</md-card>

@@ -5,7 +5,8 @@ import { MenuItem } from "menu/menuItem";
 @Component({
     moduleId: module.id,
     selector: "menu",
-    templateUrl: "menu.component.html"
+    templateUrl: "menu.component.html",
+    styleUrls: ["menu.component.css"]
 })
 export class MenuComponent {
     menuGroups: Array<MenuGroup>;
@@ -13,20 +14,20 @@ export class MenuComponent {
     constructor(){
         this.menuGroups = new Array<MenuGroup>();
         let currenciesGroup = new MenuGroup("Monedas");
-        currenciesGroup.Items.push(new MenuItem("monetization_on", "Monedas cargadas", "/currencies"));
-        currenciesGroup.Items.push(new MenuItem("attach_money", "Cargar nueva moneda","/currency"));
+        currenciesGroup.Items.push(new MenuItem("view_list", "Monedas cargadas", "/currencies"));
+        currenciesGroup.Items.push(new MenuItem("monetization_on", "Cargar nueva moneda","/currency"));
         this.menuGroups.push(currenciesGroup);
         let accountsGroup = new MenuGroup("Cuentas");
-        accountsGroup.Items.push(new MenuItem("", "Cuentas cargadas", "/accounts"));
-        accountsGroup.Items.push(new MenuItem("", "Crear nueva cuenta", "/account"));
+        accountsGroup.Items.push(new MenuItem("view_list", "Cuentas cargadas", "/accounts"));
+        accountsGroup.Items.push(new MenuItem("account_balance", "Crear nueva cuenta", "/account"));
         this.menuGroups.push(accountsGroup);
         let cardsGroup = new MenuGroup("Tarjetas");
-        cardsGroup.Items.push(new MenuItem("", "Tarjetas cargadas", "/cards"));
-        cardsGroup.Items.push(new MenuItem("", "Cargar nueva tarjeta", "/card"));
+        cardsGroup.Items.push(new MenuItem("view_list", "Tarjetas cargadas", "/cards"));
+        cardsGroup.Items.push(new MenuItem("credit_card", "Cargar nueva tarjeta", "/card"));
         this.menuGroups.push(cardsGroup);
         let entriesGroup = new MenuGroup("Movimientos");
-        entriesGroup.Items.push(new MenuItem("", "Movimientos cargados", "/movements"));
-        entriesGroup.Items.push(new MenuItem("", "Crear nuevo movimiento", "/movement"));
+        entriesGroup.Items.push(new MenuItem("view_list", "Movimientos cargados", "/movements"));
+        entriesGroup.Items.push(new MenuItem("compare_arrows", "Crear nuevo movimiento", "/movement"));
         this.menuGroups.push(entriesGroup);
     }
 

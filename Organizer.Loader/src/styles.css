@@ -69,4 +69,16 @@ md-radio-button:last-of-type {
 	margin-left: 1em; 
 }
 
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+.loading-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.loadingMessage {
+	font-size: 1em;
+	color: #499188;
+}

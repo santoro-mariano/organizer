@@ -1,6 +1,9 @@
 <div class="group-container" *ngFor="let menuGroup of menuGroups">
     <header>{{menuGroup.Name}}</header>
     <md-nav-list>
-        <a md-list-item [routerLink]="menuItem.Uri" (click)="navigate.emit()" *ngFor="let menuItem of menuGroup.Items"> {{ menuItem.Text }} </a>
+        <a md-list-item [routerLink]="menuItem.Uri" (click)="navigate.emit()" *ngFor="let menuItem of menuGroup.Items">
+            <i class="material-icons">{{menuItem.Icon}}</i>
+            <span>{{ menuItem.Text }}</span>
+        </a>
     </md-nav-list>
 </div>

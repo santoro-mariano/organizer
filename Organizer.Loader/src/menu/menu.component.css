@@ -1,0 +1,13 @@
+.group-container header {
+    background: #499188;
+    color: white;
+    padding: 0.5em;
+}
+
+md-nav-list a {
+   color: #499188;
+}
+
+md-nav-list a span {
+   margin-left: 0.2em;
+}

@@ -1,0 +1,16 @@
+<md-card *ngFor="let account of accounts" class="account-item">
+    <md-card-content>
+        <md-icon color="primary">account_balance</md-icon>
+        <div class="accountDescription">
+            <header>
+                <button md-icon-button><i class="material-icons">edit</i></button>
+                <button md-icon-button><i class="material-icons">delete</i></button>
+            </header>
+            <div class="body">
+                <p>CBU: {{account.CBU}}</p>
+                <p>Descripción: {{account.Description}}</p>
+                <p>Monto: {{account.Amount}}</p>
+            </div>
+        </div>
+    </md-card-content>
+</md-card>

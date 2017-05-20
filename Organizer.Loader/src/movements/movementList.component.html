@@ -1,19 +1,20 @@
-<md-list>
- <md-list-item *ngFor="let movement of movements" class="currency-item">
-     <md-icon md-list-icon>compare_arrows</md-icon>
-     <div class="currency-item-content">
-         <div md-line class="icon-container">
-            <button md-icon-button><i class="material-icons">edit</i></button>
-            <button md-icon-button><i class="material-icons">delete</i></button>
+<md-card *ngFor="let movement of movements" class="movement-item">
+    <md-card-content>
+        <md-icon color="primary">compare_arrows</md-icon>
+        <div class="movementDescription">
+            <header>
+                <button md-icon-button><i class="material-icons">edit</i></button>
+                <button md-icon-button><i class="material-icons">delete</i></button>
+            </header>
+            <div class="body">
+                <p>Tipo: {{movement.Type}}</p>
+                <p>Origen: {{movement.Origin}}</p>
+                <p *ngIf="movement.Origin === movementOriginEnum.Account">Cuenta Origen: {{movement.OriginAccountId}}</p>
+                <p>Descripcón: {{movement.Description}}</p>
+                <p>Moneda: {{movement.CurrencyId}}</p>
+                <p>Monto: {{movement.Amount}}</p>
+                <p>Fecha: {{movement.Date}}</p>
+            </div>
         </div>
-         <div md-line class="item-content">
-            <p>Tipo: {{movement.Type}}</p>
-            <!--<p>Origin: {{movement.Origin}}</p>
-            <p>OriginAccountId: {{movement.OriginAccountId}}</p>
-            <p>Description: {{movement.Description}}</p>
-            <p>CurrencyId: {{movement.CurrencyId}}</p>-->
-            <p>Monto: {{movement.Amount}}</p>
-         </div>
-     </div>
- </md-list-item>
-</md-list>
+    </md-card-content>
+</md-card>

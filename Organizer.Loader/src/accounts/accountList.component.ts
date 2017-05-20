@@ -7,7 +7,8 @@ import { Account } from "entities/account";
 
 @Component({
     moduleId: module.id,
-    templateUrl: "accountList.component.html"
+    templateUrl: "accountList.component.html",
+    styleUrls: ["accountList.component.css"]
 })
 export class AccountListComponent implements OnInit {
 

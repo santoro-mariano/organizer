@@ -1,4 +1,4 @@
-.currency-item {
+.account-item {
     margin: 1.5em;
 }
 
@@ -6,13 +6,13 @@ md-card-content {
     display: flex;
 }
 
-md-card-content .currencyDescription {
+md-card-content .accountDescription {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.currencyDescription header {
+.accountDescription header {
     display: flex;
     justify-content: flex-end;
     color: silver;

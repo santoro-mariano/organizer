@@ -12,7 +12,7 @@ import { Account } from "entities/account";
 })
 export class AccountListComponent implements OnInit {
 
-    private accounts: Array<Account>;
+    accounts: Array<Account>;
 
     constructor(private accountsService: AccountsService, private spinnerService: GlobalSpinnerService){
     }

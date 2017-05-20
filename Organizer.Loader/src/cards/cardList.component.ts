@@ -11,7 +11,7 @@ import { Card } from "entities/card";
 })
 export class CardListComponent implements OnInit {
 
-    private cards: Array<Card>;
+    cards: Array<Card>;
 
     constructor(private cardsService: CardsService, private spinnerService: GlobalSpinnerService){
     }

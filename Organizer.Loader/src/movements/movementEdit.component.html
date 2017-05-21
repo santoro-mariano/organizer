@@ -16,8 +16,8 @@
             </div>
             <!-- Entry Type -->
             <md-radio-group name="Type" [(ngModel)]="model.Type">
-                <md-radio-button value="movementTypeEnum.In">Ingreso</md-radio-button>
-                <md-radio-button value="movementTypeEnum.Out">Egreso</md-radio-button>
+                <md-radio-button [value]="movementTypeEnum.In">Ingreso</md-radio-button>
+                <md-radio-button [value]="movementTypeEnum.Out">Egreso</md-radio-button>
             </md-radio-group>
             <!-- Description -->
             <md-input-container>
@@ -48,5 +48,6 @@
     </md-card-content>
     <md-card-actions>
         <button md-raised-button (click)="saveChanges()">{{isNewItem ? 'Guardar' : 'Actualizar'}}</button>
+        <button *ngIf="!isNewItem" md-raised-button (click)="cancelEdit()">Cancelar</button>
     </md-card-actions>
 </md-card>

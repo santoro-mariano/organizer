@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Params } from "@angular/router";
+import { Router, ActivatedRoute, Params } from "@angular/router";
 
 import { Movement } from "entities/movement";
 import { MovementType } from "entities/movementType";
@@ -25,7 +25,7 @@ import "rxjs/add/observable/empty";
 })
 export class MovementEditComponent implements OnInit {
 
-    private movementTypeEnum = MovementType;
+    movementTypeEnum = MovementType;
     movementOriginEnum = MovementOrigin;
 
     isNewItem: boolean;
@@ -39,6 +39,7 @@ export class MovementEditComponent implements OnInit {
                 private accountsService: AccountsService,
                 private spinnerService: GlobalSpinnerService,
                 private messageBoxService: MessageBoxService,
+                private router: Router,
                 private route: ActivatedRoute){
     }
 
@@ -82,6 +83,10 @@ export class MovementEditComponent implements OnInit {
         }
     }
 
+    cancelEdit(): void {
+        this.router.navigate(["/movements"]);
+    }
+
     private onChangesCompleted(result: boolean): void {
         if(this.isNewItem && result){
             const cleanMovement = new Movement();
@@ -93,5 +98,8 @@ export class MovementEditComponent implements OnInit {
         this.spinnerService.hide();
         const resultMessage = result ? "Movimiento guardado correctamente" : "No se pudo guardar el movimiento.";
         this.messageBoxService.show(resultMessage);
+        if(!this.isNewItem && result){
+            this.router.navigate(["/movements"]);
+        }
     }
 }

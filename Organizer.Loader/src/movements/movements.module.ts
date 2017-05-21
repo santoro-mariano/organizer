@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { RouterModule } from "@angular/router";
 
 import { CommonModule } from "common/common.module";
 
@@ -13,7 +14,8 @@ import { MovementsService } from "movements/movements.service";
         MovementEditComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        RouterModule
     ],
     exports: [
         MovementListComponent,

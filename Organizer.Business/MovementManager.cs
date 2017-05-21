@@ -28,7 +28,7 @@ namespace Organizer.Business
         {
             using (var ctx = new OrganizerContext())
             {
-                return ctx.Movements.Select(m => m.Description).ToList();
+                return ctx.Movements.Select(m => m.Description).Distinct().ToList();
             }
         }
 

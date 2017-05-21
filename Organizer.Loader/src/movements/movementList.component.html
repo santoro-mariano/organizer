@@ -3,8 +3,8 @@
         <md-icon color="primary">compare_arrows</md-icon>
         <div class="movementDescription">
             <header>
-                <button md-icon-button><i class="material-icons">edit</i></button>
-                <button md-icon-button><i class="material-icons">delete</i></button>
+                <button md-icon-button [routerLink]="['/movement', movement.Id]"><i class="material-icons">edit</i></button>
+                <button md-icon-button (click)="deleteMovement(movement.Id)"><i class="material-icons">delete</i></button>
             </header>
             <div class="body">
                 <p>Tipo: {{movement.Type}}</p>

@@ -91,7 +91,7 @@ namespace Organizer.WebAPI.Controllers
         }
 
         [Route("{movementId}")]
-        public ApiResponse DeleteMovement([FromBody] long movementId)
+        public ApiResponse DeleteMovement(long movementId)
         {
             var result = new ApiResponse();
             try
